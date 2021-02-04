@@ -1,9 +1,6 @@
 from haystack import Finder
 from haystack.document_store.elasticsearch import ElasticsearchDocumentStore
-from haystack.reader.farm import FARMReader
-from haystack.reader.transformers import TransformersReader
 from haystack.retriever.sparse import ElasticsearchRetriever
-from transformers import QuestionAnsweringPipeline
 from ..cy.Reader import TransformersReader as Reader
 from pulp.pipeline import MODEL_PATH
 
