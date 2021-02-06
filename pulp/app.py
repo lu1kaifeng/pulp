@@ -5,14 +5,12 @@ import uvicorn
 from pulp.pipeline.QAPipeLine import QAPipeLine
 from fastapi import FastAPI
 
+from pulp.routes import QARoute
+
 app = FastAPI()
 
-
-@app.get("/")
-def read_root():
-    return pl("1702.00505.txt", "what is The goal of this exploration")
+app.include_router(QARoute.qa_route)
 
 
 if __name__ == '__main__':
-    pl = QAPipeLine()
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000,root_path='/api')
